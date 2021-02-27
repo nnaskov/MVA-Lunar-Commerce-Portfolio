@@ -24,16 +24,6 @@ AngularJS-powered HTML5 Markdown editor.</p>
 that people naturally use in email.
 As [John Gruber] writes on the [Markdown site][df1]</p>
 
-<blockquote>
-<p>The overriding design goal for Markdown&#39;s
-formatting syntax is to make it as readable
-as possible. The idea is that a
-Markdown-formatted document should be
-publishable as-is, as plain text, without
-looking like it&#39;s been marked up with tags
-or formatting instructions.</p>
-</blockquote>
-
 <p>This text you see here is *actually- written in Markdown! To get a feel
 for Markdown&#39;s syntax, type some text into the left window and
 watch the results in the right.</p>
@@ -59,14 +49,9 @@ to Markdown converter</li>
 <p>Dillinger requires <a href="https://nodejs.org/">Node.js</a> v10+ to run.</p>
 
 <p>Install the dependencies and devDependencies and start the server.</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code><span class="nb">cd </span>dillinger
-npm i
-node app
-</code></pre></div>
+
 <p>For production environments...</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>npm <span class="nb">install</span> <span class="nt">--production</span>
-<span class="nv">NODE_ENV</span><span class="o">=</span>production node app
-</code></pre></div><h2 id='plugins'>Plugins</h2>
+<h2 id='plugins'>Plugins</h2>
 <p>Dillinger is currently extended with the following plugins.
 Instructions on how to use them in your own application are linked below.</p>
 
@@ -110,28 +95,17 @@ Make a change in your file and instantaneously see your updates!</p>
 <p>Open your favorite Terminal and run these commands.</p>
 
 <p>First Tab:</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>node app
-</code></pre></div>
-<p>Second Tab:</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>gulp watch
-</code></pre></div>
-<p>(optional) Third:</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>karma <span class="nb">test</span>
-</code></pre></div><h4 id='building-for-source'>Building for source</h4>
+<h4 id='building-for-source'>Building for source</h4>
 <p>For production release:</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>gulp build <span class="nt">--prod</span>
-</code></pre></div>
+
 <p>Generating pre-built zip archives for distribution:</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>gulp build dist <span class="nt">--prod</span>
-</code></pre></div><h2 id='docker'>Docker</h2>
+<h2 id='docker'>Docker</h2>
 <p>Dillinger is very easy to install and deploy in a Docker container.</p>
 
 <p>By default, the Docker will expose port 8080, so change this within the
 Dockerfile if necessary. When ready, simply use the Dockerfile to
 build the image.</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code><span class="nb">cd </span>dillinger
-docker build <span class="nt">-t</span> &lt;youruser&gt;/dillinger:<span class="k">${</span><span class="nv">package</span><span class="p">.json.version</span><span class="k">}</span> <span class="nb">.</span>
-</code></pre></div>
+
 <p>This will create the dillinger image and pull in the necessary dependencies.
 Be sure to swap out <code>${package.json.version}</code> with the actual
 version of Dillinger.</p>
@@ -139,16 +113,10 @@ version of Dillinger.</p>
 <p>Once done, run the Docker image and map the port to whatever you wish on
 your host. In this example, we simply map port 8000 of the host to
 port 8080 of the Docker (or whatever port was exposed in the Dockerfile):</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8000:8080 <span class="nt">--restart</span><span class="o">=</span>always <span class="nt">--cap-add</span><span class="o">=</span>SYS_ADMIN <span class="nt">--name</span><span class="o">=</span>dillinger &lt;youruser&gt;/dillinger:<span class="k">${</span><span class="nv">package</span><span class="p">.json.version</span><span class="k">}</span>
-</code></pre></div>
-<blockquote>
-<p>Note: <code>--capt-add=SYS-ADMIN</code> is required for PDF rendering.</p>
-</blockquote>
 
 <p>Verify the deployment by navigating to your server address in
 your preferred browser.</p>
-<div class="highlight"><pre class="highlight sh tab-shell"><code>127.0.0.1:8000
-</code></pre></div><h2 id='tables'>Tables</h2>
+<h2 id='tables'>Tables</h2>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
